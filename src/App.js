@@ -13,7 +13,7 @@ const App = () => {
   const [selectedRegion, setSelectedRegion] = useState("");
   const [darkMode, setDarkMode] = useState(false);
 
-  // fetch data 
+
   useEffect(() => {
     // Simulate async behavior
     const fetchData = async () => {
@@ -62,16 +62,17 @@ const App = () => {
   };
 
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <div className="App">
         <div className={`container ${darkMode ? "dark" : ""}`}>
           <Header darkMode={darkMode} setDarkMode={setDarkMode} />
           <main>
             <Routes>
+              
               <Route
                 path="/"
                 element={
-                  <>
+                  <div>
                     <div className="section-1">
                       <div className="section-1-left">
                         <div className="input-container">
@@ -144,15 +145,16 @@ const App = () => {
                         )}
                       </div>
                     </div>
-
-                    <div className="section-2">
-                      <div className="section-2-container">
-                        {filteredCountries.map((country, index) => (
-                          <Country key={index} country={country} />
-                        ))}
+                    
+                      <div className="section-2">
+                        <div className="section-2-container">
+                          {filteredCountries.map((country, index) => (
+                            <Country key={index} country={country} />
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  </>
+               
+                  </div>
                 }
               />
               <Route
@@ -165,18 +167,13 @@ const App = () => {
 
         <div className="attribution">
           Challenge by{" "}
-          <a
-            href="https://www.frontendmentor.io?ref=challenge"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
             Frontend Mentor
           </a>
           . Coded by{" "}
           <a
             href="https://www.frontendmentor.io/profile/vonjytahina"
             target="_blank"
-            rel="noreferrer"
           >
             Vonjy Tahina CHAN
           </a>
