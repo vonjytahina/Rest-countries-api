@@ -13,6 +13,7 @@ const App = () => {
   const [selectedRegion, setSelectedRegion] = useState("");
   const [darkMode, setDarkMode] = useState(false);
 
+  // fetch data 
   useEffect(() => {
     // Simulate async behavior
     const fetchData = async () => {
